@@ -1,0 +1,8 @@
+# ignore Mac system files
+.DS_Store
+
+# Ignore all text files
+*.txt
+
+# Ignore files related to API keys
+.env
