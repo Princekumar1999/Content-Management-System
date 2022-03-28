@@ -12,7 +12,20 @@
         $post_tags = $_POST['post_tags'];
         $post_content = $_POST['post_content'];
 
+        // it will be used to store uploaded images into desired directory
         move_uploaded_file($post_image_temp, "../images/$post_image");
+
+        // INSERT POST
+        // now() function for date field
+        $query = "INSERT INTO posts(post_category_id, post_title, post_author, post_date, post_image, post_content,post_tags, post_comment_count, post_status) ";
+
+        $query .= "VALUES({$post_category_id},'{$post_title}','{$post_author}',now(),'{$post_image}','{$post_content}','{$post_tags}','{$post_comment_count}','{$post_status}')";
+
+        // Now send the query to database table
+        $create_post_querry = mysqli_query($connection, $query);
+
+        // Check the confirmation of query using function
+        confirmQuery($create_post_querry);
     }
 
 ?>

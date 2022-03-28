@@ -1,4 +1,10 @@
 <?php
+    function confirmQuery($reuslt){
+        global $connection;
+        if(!$reuslt){
+            die("QUERY FAILED. " . mysqli_error($connection));
+        }
+    }
 
     function insert_categories(){
         if(isset($_POST['submit'])){
