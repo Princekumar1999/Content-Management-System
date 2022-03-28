@@ -28,8 +28,8 @@
                                     case 'add_post':
                                         include "includes/add_posts.php";
                                         break;
-                                    case 20:
-                                        echo "20";
+                                    case 'edit_post':
+                                        include "includes/edit_posts.php";
                                         break;
                                     case 30:
                                         echo "30";

@@ -10,15 +10,17 @@
             <th>Tags</th>
             <th>Comment Count</th>
             <th>Date</th>
+            <th>Post Content</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
 
     <?php
     $query = "SELECT * FROM posts";
-    $select_categories = mysqli_query($connection, $query);
+    $select_posts = mysqli_query($connection, $query);
 
-    while($row = mysqli_fetch_assoc($select_categories)){
+    while($row = mysqli_fetch_assoc($select_posts)){
     $post_id = $row['post_id'];
     $post_title = $row['post_title'];
     $post_author = $row['post_author'];
@@ -28,6 +30,7 @@
     $post_date = $row['post_date'];
     $post_image = $row['post_image'];
     $post_tags = $row['post_tags'];
+    $post_content = $row['post_content'];
 
     echo "<tr>";
     echo "<td>{$post_id}</td>";
@@ -39,7 +42,9 @@
     echo "<td>{$post_tags}</td>";
     echo "<td>{$post_comment_count}</td>";
     echo "<td>{$post_date}</td>";
-    echo "<td><a href='posts.php?delete={$post_id}'>Delete</a></td>";
+    echo "<th>{$post_content}</td>";
+    echo "<td><a href='posts.php?delete={$post_id}'>Delete</a>/
+    <a href='posts.php?source=edit_post&p_id={$post_id}'>Edit</a></td>";
     echo "</tr>";
     }
     ?>
